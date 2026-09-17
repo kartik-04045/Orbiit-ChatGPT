@@ -1,31 +1,305 @@
+/* ================================
+   CHAT AREA
+================================ */
+
 .chats {
-  max-width: 700px;
-  overflow-y: auto;         /* scroll is fine too */
-  padding: 8rem 0 8rem 0;   /* top and bottom only */
-  margin: 0 auto;           /* center horizontally */
+  width: min(760px, 90%);
+  flex: 1;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 35px 0 40px;
+  box-sizing: border-box;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
+/* scrollbar */
+.chats::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chats::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 10px;
+}
+
+.chats::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+/* ================================
+   USER MESSAGE
+================================ */
 
 .userDiv {
   display: flex;
   justify-content: flex-end;
-  font-size: 0.9rem;
-}
 
-.gptDiv {
-  text-align: left;
-  font-size: 0.9rem;
-  background-color: rgba(71, 71, 71, 0.404);
-  border-radius: 14px;
-  padding: 10px 20px;
+  margin: 20px 0;
 }
 
 .userMessage {
-  background-color: #323232;
-  padding: 10px 20px;
-  border-radius: 14px;
-  margin-left: 15rem;
-  max-width: 500px;
-  width: fit-content;
+  max-width: 65%;
+
+  margin: 0;
+
+  padding: 10px 15px;
+
+  border-radius: 12px 12px 4px 12px;
+
+  background: #24272d;
+
+  color: #e8eaed;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  word-break: break-word;
 }
 
 
+/* ================================
+   ORBIT RESPONSE
+================================ */
+
+.gptDiv {
+  max-width: 100%;
+
+  margin: 22px 0;
+
+  padding: 4px 0;
+
+  background: transparent;
+
+  border: none;
+
+  color: #d7d9de;
+
+  font-size: 15px;
+
+  line-height: 1.65;
+
+  overflow-wrap: break-word;
+}
+
+
+/* ================================
+   MARKDOWN
+================================ */
+
+.gptDiv p {
+  margin: 0 0 12px;
+}
+
+.gptDiv p:last-child {
+  margin-bottom: 0;
+}
+
+.gptDiv h1,
+.gptDiv h2,
+.gptDiv h3 {
+  margin-top: 22px;
+  margin-bottom: 10px;
+
+  color: #f0f1f3;
+}
+
+.gptDiv h1 {
+  font-size: 22px;
+}
+
+.gptDiv h2 {
+  font-size: 19px;
+}
+
+.gptDiv h3 {
+  font-size: 17px;
+}
+
+
+/* ================================
+   LISTS
+================================ */
+
+.gptDiv ul,
+.gptDiv ol {
+  padding-left: 22px;
+
+  margin: 10px 0;
+}
+
+.gptDiv li {
+  margin: 5px 0;
+}
+
+
+/* ================================
+   CODE
+================================ */
+
+.gptDiv code {
+  padding: 2px 5px;
+
+  border-radius: 4px;
+
+  background: #202329;
+
+  color: #d9dce2;
+
+  font-family: Consolas, monospace;
+
+  font-size: 13px;
+}
+
+.gptDiv pre {
+  overflow-x: auto;
+
+  margin: 14px 0;
+
+  padding: 14px;
+
+  border-radius: 8px;
+
+  background: #17191e;
+
+  border: 1px solid #292d34;
+}
+
+.gptDiv pre code {
+  padding: 0;
+
+  background: transparent;
+
+  border-radius: 0;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.gptDiv table {
+  width: 100%;
+
+  margin: 15px 0;
+
+  border-collapse: collapse;
+
+  font-size: 14px;
+}
+
+.gptDiv th,
+.gptDiv td {
+  padding: 9px 11px;
+
+  border: 1px solid #30343b;
+
+  text-align: left;
+}
+
+.gptDiv th {
+  background: #202329;
+
+  color: #f0f1f3;
+
+  font-weight: 600;
+}
+
+.gptDiv td {
+  color: #cdd0d6;
+}
+
+
+/* ================================
+   LINKS
+================================ */
+
+.gptDiv a {
+  color: #7ea7ff;
+
+  text-decoration: none;
+}
+
+.gptDiv a:hover {
+  text-decoration: underline;
+}
+
+
+/* ================================
+   BLOCKQUOTE
+================================ */
+
+.gptDiv blockquote {
+  margin: 14px 0;
+
+  padding: 8px 14px;
+
+  border-left: 3px solid #555b66;
+
+  color: #aeb3bc;
+}
+
+
+/* ================================
+   LOADING WAVE
+================================ */
+
+.loadingIndicator {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+
+  width: fit-content;
+  height: 22px;
+
+  margin: 10px 0 5px;
+  padding-left: 2px;
+}
+
+.loadingIndicator span {
+  display: block;
+
+  width: 4px;
+  height: 8px;
+
+  background: #b8bbc2;
+  border-radius: 4px;
+
+  animation: loadingWave 1s ease-in-out infinite;
+}
+
+.loadingIndicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loadingIndicator span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loadingIndicator span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loadingIndicator span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.loadingIndicator span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingWave {
+  0%,
+  100% {
+    transform: scaleY(0.5);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scaleY(1.4);
+    opacity: 1;
+  }
+}

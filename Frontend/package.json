@@ -1,7 +1,6 @@
 {
-  "engine":{
-    "node":"22.19.0"
-
+  "engine": {
+    "node": "22.19.0"
   },
   "name": "frontend",
   "private": true,
@@ -19,6 +18,7 @@
     "react-markdown": "^10.1.0",
     "react-spinners": "^0.17.0",
     "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
     "uuid": "^13.0.0"
   },
   "devDependencies": {

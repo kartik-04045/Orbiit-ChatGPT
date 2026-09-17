@@ -1,77 +1,424 @@
+/* ================================
+   SIDEBAR
+================================ */
+
 .sidebar {
-  background-color: #171717;
-  color: #b4b4b4;
+  width: 300px;
   height: 100vh;
-  width: 320px;
+  padding: 22px 16px 18px;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
+  background: #111318;
+  border-right: 1px solid #25282f;
+  color: #e7e9ed;
 }
 
-button {
+
+/* ================================
+   ORBIT HEADER
+================================ */
+
+.sidebarTop {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.logoButton {
+  width: 100%;
+  min-height: 62px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 10px;
-  padding: 10px;
+
+  padding: 8px 10px;
+
+  border: none;
   border-radius: 10px;
-  background-color: transparent;
-  border: solid 0.5px rgba(255, 255, 255, 0.5);
+
+  background: transparent;
+  color: #ffffff;
+
   cursor: pointer;
+}
+
+.logoButton:hover {
+  background: #191c22;
 }
 
 .logo {
-  height: 25px;
-  width: 25px;
-  background-color: #fff;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+  border-radius: 9px;
+
+  margin-right: 11px;
 }
 
-button span {
+.brandText {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+.brandName {
   font-size: 20px;
-}
-button:hover{
-    background-color:rgba(255, 255, 255, 0.05);
-}
-.history {
-  margin: 10px;
-  padding: 10px;
-  height: 100%;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
-.history li {
-  list-style-type: none;
-  cursor: pointer;
-  padding: 2px 5px;
-  margin-bottom: 0.3rem;
+.brandSubtitle {
+  font-size: 11px;
+  color: #858a94;
+  margin-top: 3px;
+}
+
+.editIcon {
+  font-size: 15px;
+  color: #858a94;
+}
+
+
+/* ================================
+   NEW CHAT
+================================ */
+
+.newChatButton {
+  width: 100%;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  margin: 0 0 24px;
+
+  border: 1px solid #343840;
+  border-radius: 9px;
+
+  background: #191c22;
+  color: #e9ebef;
+
   font-size: 14px;
-  border: solid 10px transparent;
-  position: relative;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.newChatButton:hover {
+  background: #20242b;
+  border-color: #464b55;
+}
+
+.newChatButton i {
+  font-size: 13px;
+}
+
+
+/* ================================
+   HISTORY HEADER
+================================ */
+
+.historyHeader {
+  display: flex;
+  align-items: center;
+
+  margin: 0 10px 9px;
+
+  color: #777d88;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.historyHeader::after {
+  display: none;
+}
+
+
+/* ================================
+   HISTORY
+================================ */
+
+.history {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+
+  overflow-y: auto;
+}
+
+.history::-webkit-scrollbar {
+  width: 4px;
+}
+
+.history::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.history::-webkit-scrollbar-thumb {
+  background: #383c44;
   border-radius: 10px;
 }
 
+.history li {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 9px;
+  margin-bottom: 3px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  color: #c5c8ce;
+
+  transition: background 0.15s ease;
+}
+
 .history li:hover {
-    background-color:rgba(255, 255, 255, 0.05);
+  background: #191c22;
 }
-.sign {
-  padding: 10px;
-  margin: 10px;
+
+.activeThread {
+  background: #20242b !important;
+}
+
+
+/* ================================
+   THREAD TITLE
+================================ */
+
+.threadTitle {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex: 1;
+  min-width: 0;
+}
+
+.threadTitle i {
   font-size: 14px;
-  text-align: center;
-  border-top: solid 0.25px rgba(255, 255, 255, 0.5);
-}
-.fa-trash {
-  opacity: 0;
-  position: absolute;
-  right: 0;
+  color: #858a94;
 }
 
-.history li:hover .fa-trash {
-  opacity: 1;
-  color: #fff;
+.threadTitle span {
+  overflow: hidden;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-size: 13px;
 }
 
-.fa-trash:hover {
-  color: #f87171 !important;
+
+/* ================================
+   DELETE
+================================ */
+
+.deleteIcon {
+  display: none;
+
+  padding: 5px;
+
+  border-radius: 5px;
+
+  color: #777d88;
+
+  cursor: pointer;
+
+  font-size: 13px;
+}
+
+.history li:hover .deleteIcon {
+  display: block;
+}
+
+.deleteIcon:hover {
+  color: #ef6b73;
+  background: #272027;
+}
+
+
+/* ================================
+   USER
+================================ */
+
+.sign {
+  margin-top: auto;
+
+  padding-top: 15px;
+  padding-left: 5px;
+
+  border-top: 1px solid #25282f;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.userCircle {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #272b32;
+
+  color: #cfd2d8;
+}
+
+.sign p {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #d8dbe0;
+}
+
+.sign span {
+  margin-left: 3px;
+}
+
+
+/* ================================
+   DELETE OVERLAY
+================================ */
+
+.deleteOverlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+
+/* ================================
+   DELETE MODAL
+================================ */
+
+.deleteModal {
+  width: 380px;
+
+  padding: 22px;
+
+  box-sizing: border-box;
+
+  background: #181b20;
+
+  border: 1px solid #30343c;
+
+  border-radius: 12px;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.deleteModal h2 {
+  margin: 0 0 14px;
+
+  color: #f1f2f4;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.deleteModal p {
+  margin: 0;
+
+  color: #9da2ac;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.deleteModal strong {
+  color: #e6e8eb;
+}
+
+
+/* ================================
+   DELETE BUTTONS
+================================ */
+
+.deleteButtons {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  margin-top: 23px;
+}
+
+.cancelButton {
+  padding: 8px 15px;
+
+  border: 1px solid #363a42;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #c9ccd2;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background: #22252b;
+}
+
+.confirmDeleteButton {
+  padding: 8px 15px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #d94b55;
+
+  color: white;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.confirmDeleteButton:hover {
+  background: #c83f49;
 }
