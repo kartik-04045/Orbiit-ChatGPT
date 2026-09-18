@@ -1,6 +1,8 @@
 
 # Orbiit-ChatGPT 🤖💬
 
+🚀 **Live Demo:** https://orbiit-chat-gpt.vercel.app
+
 A full-stack AI chat application built with React, Node.js, Express.js, MongoDB Atlas, and the Groq API.
 
 Orbiit provides a conversational chat interface where users can create new conversations, continue previous conversations, switch between chat threads, and delete conversations.
